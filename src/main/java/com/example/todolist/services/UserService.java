@@ -1,9 +1,11 @@
 package com.example.todolist.services;
 
-import com.example.todolist.model.User;
-import org.springframework.stereotype.Service;
+import com.example.todolist.model.Person;
+import com.example.todolist.model.dto.UserDTO;
 
 
 public interface UserService {
-    User registerUser(String username, String password);
+    Person registerUser(UserDTO userDTO);
+
+    String verify(UserDTO userDTO);
 }

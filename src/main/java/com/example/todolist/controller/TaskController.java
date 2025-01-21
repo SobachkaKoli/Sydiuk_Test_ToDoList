@@ -1,7 +1,7 @@
 package com.example.todolist.controller;
 
+import com.example.todolist.model.Person;
 import com.example.todolist.model.Task;
-import com.example.todolist.model.User;
 import com.example.todolist.services.TaskService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -12,8 +12,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
-
-import java.util.List;
 
 @RestController
 @RequestMapping("/api/tasks")
@@ -27,14 +25,14 @@ public class TaskController {
 
     @PostMapping
     public ResponseEntity<Task> createTask(@RequestBody Task task, @RequestParam Long userId) {
-        // Assume user is fetched based on userId
-        Task createdTask = taskService.createTask(task, new User()); // Replace with actual user fetching
+
+        Task createdTask = taskService.createTask(task, new Person());
         return ResponseEntity.ok(createdTask);
     }
 
     @GetMapping
-    public ResponseEntity<List<Task>> getTasks(@RequestParam Long userId) {
-        return ResponseEntity.ok(taskService.getTaskByUserId(userId));
+    public ResponseEntity<String> getTasks() {
+        return ResponseEntity.ok("HELLO WORLD");
     }
 
     @DeleteMapping("/{id}")
