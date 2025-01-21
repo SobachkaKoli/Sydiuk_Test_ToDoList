@@ -47,4 +47,9 @@ public class UserServiceImpl implements UserService {
         return "fail";
 
     }
+
+    @Override
+    public Person getUserById(long userId) {
+        return userRepository.findById(userId).orElseThrow();
+    }
 }

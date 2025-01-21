@@ -8,4 +8,5 @@ public interface UserService {
     Person registerUser(UserDTO userDTO);
 
     String verify(UserDTO userDTO);
+    Person getUserById(long userId);
 }
